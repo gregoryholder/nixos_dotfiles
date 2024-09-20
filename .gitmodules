@@ -1,0 +1,3 @@
+[submodule "legacy_dotfiles"]
+	path = legacy_dotfiles
+	url = https://github.com/blueted2/dotfiles
