@@ -111,6 +111,9 @@
   environment.systemPackages = with pkgs; [
     wget
     vim
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pyserial
+    ]))
     wget
     git
     helix
