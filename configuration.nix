@@ -103,13 +103,6 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "gregory" = import ./home.nix;
-  #   };
-  # };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
