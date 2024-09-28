@@ -6,24 +6,56 @@
   home.username = "gregory";
   home.homeDirectory = "/home/gregory";
 
-  programs.git = {
-    enable = true;
-    userName = "Gregory Holder";
-    userEmail = "gregory.holder76@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
+  programs = {
+    git = {
+      enable = true;
+      userName = "Gregory Holder";
+      userEmail = "gregory.holder76@gmail.com";
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
+
+    gh.enable = true;
+    zsh = {
+        enable = true;
+        autosuggestion.enable = true;
+    };
+
+    oh-my-posh = {
+        enable = true;
+        settings = builtins.fromTOML (builtins.readFile ./zen.toml);
+    };
+
+    lazygit.enable = true;
+
+    alacritty = {
+        enable = true;
+
+        settings = {
+          font.normal = {
+            family = "FiraCode Nerd Font";
+            style = "Regular";
+          };
+        };
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd cd"];
+    };
+
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
   };
 
-  programs.gh.enable = true;
-
-
-  programs.zsh.enable = true;
-
-  # programs.zsh.initExtra = (builtins.readFile ./legacy_dotfiles/dot_zshrc);
-
-  # programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -37,10 +69,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.zsh-powerlevel10k
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    pkgs.nil
+    pkgs.arduino-ide
+    pkgs.obsidian
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -90,7 +121,5 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  # programs.nil.enable = true;
 }
