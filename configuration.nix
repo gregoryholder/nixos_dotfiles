@@ -85,10 +85,8 @@
   users.users.gregory = {
     isNormalUser = true;
     description = "Gregory Holder";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    shell = pkgs.zsh;
   };
 
   # Enable automatic login for the user.
